@@ -6,4 +6,4 @@
   <% end %>
 </div>
 
-<%== pagy_bulma_nav(@pagy) %>
+<%== pagy_bulma_nav(@pagy) if @pagy.pages > 1 %>

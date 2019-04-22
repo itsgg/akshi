@@ -87,9 +87,7 @@ require 'pagy/extras/bulma'
 
 # Trim extra: Remove the page=1 param from links
 # See https://ddnexus.github.io/pagy/extras/trim
-# require 'pagy/extras/trim'
-
-
+require 'pagy/extras/trim'
 
 # Pagy Variables
 # See https://ddnexus.github.io/pagy/api/pagy#variables

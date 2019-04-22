@@ -34,4 +34,8 @@ class SubjectTest < ActiveSupport::TestCase
     assert_equal subjects(:programming).children.size, 2
   end
 
+  test 'root' do
+    assert_equal Subject.root.size, 2
+  end
+
 end
