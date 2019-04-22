@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class SubjectsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test 'index' do
+    get subjects_url
+    assert_response :success
+  end
+
 end
