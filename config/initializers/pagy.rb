@@ -99,7 +99,7 @@ require 'pagy/extras/bulma'
 
 # Instance variables
 # See https://ddnexus.github.io/pagy/api/pagy#instance-variables
-Pagy::VARS[:items] = 3                                   # default
+Pagy::VARS[:items] = 4                                   # default
 
 
 # Other Variables
