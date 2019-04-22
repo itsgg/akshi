@@ -2,7 +2,7 @@
   <div class="card subject-card">
     <header class="card-header">
       <p class="card-header-title">
-        <%= subject.title %>
+        <%= link_to subject.title, subject_path(subject) %>
       </p>
     </header>
     <div class="card-image">
@@ -16,9 +16,14 @@
       </div>
     </div>
     <footer class="card-footer">
-      <a href="#" class="card-footer-item">Save</a>
-      <a href="#" class="card-footer-item">Edit</a>
-      <a href="#" class="card-footer-item">Delete</a>
+      <p class="card-footer-item has-text-info">
+        <%= fa_icon 'users', class: 'm-r-xs' %>
+        3300
+      </p>
+      <p class="card-footer-item has-text-success">
+        <%= fa_icon 'clock-o', class: 'm-r-xs' %>
+        3rd April
+      </p>
     </footer>
   </div>
 </div>

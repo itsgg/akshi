@@ -3,6 +3,7 @@
 # Table name: subjects
 #
 #  id          :bigint(8)        not null, primary key
+#  content     :text             not null
 #  description :string           not null
 #  title       :string           not null
 #  created_at  :datetime         not null
@@ -13,27 +14,33 @@
 programming:
   title: Programming
   description: Learn Programming
+  content: Content
 
 programming_ruby:
   title: Ruby
   description: Learn Ruby
   parent: programming
+  content: Content
 
 programming_javascript:
   title: Javascript
   description: Learn Javascript
   parent: programming
+  content: Content
 
 philosophy:
   title: Philosophy
   description: Learn Philosophy
+  content: Content
 
 philosophy_stoicism:
   title: Stoicism
   description: Learn Stoicism
   parent: philosophy
+  content: Content
 
 philosophy_hedonism:
   title: Hedonism
   description: Learn Hedonism
   parent: philosphy
+  content: Content

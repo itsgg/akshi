@@ -1,0 +1,29 @@
+<%= breadcrumb @subject %>
+<div class="columns">
+  <div class="column  <%= @subject.children.present? ? 'is-9' : 'is-12' %>">
+    <h1 class="title">
+      <%= @subject.title %>
+    </h1>
+
+    <div class="content">
+      <%= @subject.content %>
+    </div>
+  </div>
+
+  <% if @subject.children.present? %>
+    <div class="column is-3">
+      <nav class="panel">
+        <p class="panel-heading">
+          Topics
+        </p>
+        <% @subject.children.each do |subject| %>
+          <%= link_to subject_path(subject), class: 'panel-block' do %>
+          <span class="panel-icon">
+            <%= fa_icon 'book' %>
+          </span>
+            <%= subject.title %>
+          <% end %>
+        <% end %>
+      </nav>
+    </div>
+  <% end %>
