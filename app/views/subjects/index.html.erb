@@ -1,0 +1,9 @@
+<%= render '/layouts/search' %>
+
+<div class="columns is-multiline">
+  <% @subjects.each do |subject| %>
+    <%= render subject %>
+  <% end %>
+</div>
+
+<%== pagy_bulma_nav(@pagy) %>
