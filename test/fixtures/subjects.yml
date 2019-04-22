@@ -22,6 +22,12 @@ programming_ruby:
   parent: programming
   content: Content
 
+programming_ruby_fibers:
+  title: Fibers
+  description: Learn Ruby Fibers
+  parent: programming_ruby
+  content: Content
+
 programming_javascript:
   title: Javascript
   description: Learn Javascript
