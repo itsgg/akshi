@@ -7,6 +7,7 @@
 #  title       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  parent_id   :integer
 #
 
 require 'test_helper'
@@ -23,6 +24,14 @@ class SubjectTest < ActiveSupport::TestCase
     subject = Subject.new title: 'Test'
     refute subject.valid?
     assert_not_nil subject.errors[:description], 'description validation failed'
+  end
+
+  test 'parent' do
+    assert_equal subjects(:programming_ruby).parent, subjects(:programming)
+  end
+
+  test 'children' do
+    assert_equal subjects(:programming).children.size, 2
   end
 
 end

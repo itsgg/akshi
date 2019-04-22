@@ -7,8 +7,33 @@
 #  title       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  parent_id   :integer
 #
 
 programming:
   title: Programming
-  description: Learn programming
+  description: Learn Programming
+
+programming_ruby:
+  title: Ruby
+  description: Learn Ruby
+  parent: programming
+
+programming_javascript:
+  title: Javascript
+  description: Learn Javascript
+  parent: programming
+
+philosophy:
+  title: Philosophy
+  description: Learn Philosophy
+
+philosophy_stoicism:
+  title: Stoicism
+  description: Learn Stoicism
+  parent: philosophy
+
+philosophy_hedonism:
+  title: Hedonism
+  description: Learn Hedonism
+  parent: philosphy
