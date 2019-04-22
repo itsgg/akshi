@@ -11,4 +11,8 @@ class SubjectsViewTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test 'pagination' do
+    skip 'test that pagination is shown only when pages > 1'
+  end
+
 end
