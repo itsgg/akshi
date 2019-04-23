@@ -7,12 +7,8 @@ class SubjectsController < ApplicationController
 
   def search
     keyword = params[:keyword]
-    if keyword.present?
-      search_term = SubjectSearchTerm.new(params[:keyword].downcase)
-      subjects = Subject.where(search_term.where_clause, search_term.where_params, search_term.order_params)
-    else
-      subjects = []
-    end
+    search_term = SubjectSearchTerm.new(params[:keyword].downcase)
+    subjects = Subject.where(search_term.where_clause, search_term.where_params, search_term.order_params)
     @pagy, @subjects = pagy(subjects)
   end
 
