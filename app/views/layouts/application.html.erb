@@ -10,7 +10,12 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'></script>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-      showMathMenu: false
+      showMathMenu: false,
+       tex2jax: {
+          inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+          processEscapes: true,
+          ignoreClass: 'trix-content'
+       }
     });
   </script>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>

@@ -30,7 +30,7 @@ function init() {
 }
 
 function initMathjax() {
-    MathJax.Hub.Typeset();
+    MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
 }
 
 function initHighlight() {
