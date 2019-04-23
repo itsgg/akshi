@@ -14,22 +14,22 @@
 
     <div class="navbar-menu">
       <div class="navbar-end">
-        <div class="navbar-item">
-          <%= render '/layouts/search' %>
-        </div>
         <%= link_to new_subject_path, class: 'navbar-item' do %>
           New
         <% end if admin? %>
+        <div class="navbar-item">
+          <%= render '/layouts/search' %>
+        </div>
         <% if logged_in? %>
           <%= link_to logout_path, class: 'navbar-item', method: :delete do %>
-            <strong>Logout</strong>
+            Logout
           <% end %>
         <% else %>
           <%= link_to signup_path, class: 'navbar-item' do %>
-            <strong>Sign up</strong>
+            Sign up
           <% end %>
           <%= link_to login_path, class: 'navbar-item' do %>
-            <strong>Login</strong>
+            Login
           <% end %>
         <% end %>
       </div>
