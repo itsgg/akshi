@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root to: 'subjects#index'
 
-  resources :subjects
+  resources :subjects do
+    collection do
+      get 'search'
+    end
+  end
   resources :users
   resources :attachments, only: [:create]
 

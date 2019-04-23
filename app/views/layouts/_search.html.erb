@@ -1,10 +1,10 @@
-<div class="field has-addons">
-  <div class="control">
-    <input class="input" type="text" placeholder="Find a subject">
+<%= form_tag search_subjects_path, method: :get do %>
+  <div class="field has-addons">
+    <div class="control">
+      <%= text_field_tag :keyword, params[:keyword], class: 'input', placeholder: 'Find a subject' %>
+    </div>
+    <div class="control">
+      <%= button_tag :search, class: 'button is-info' %>
+    </div>
   </div>
-  <div class="control">
-    <a class="button is-info">
-      Search
-    </a>
-  </div>
-</div>
+<% end %>

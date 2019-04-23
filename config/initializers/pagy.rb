@@ -97,7 +97,7 @@ require 'pagy/extras/trim'
 
 # Instance variables
 # See https://ddnexus.github.io/pagy/api/pagy#instance-variables
-Pagy::VARS[:items] = 4                                   # default
+Pagy::VARS[:items] = 12 # default
 
 
 # Other Variables

@@ -1,13 +1,13 @@
+<h1 class="title">Search</h1>
 <% if @subjects.present? %>
   <div class="columns is-multiline">
     <% @subjects.each do |subject| %>
-      <%= render partial: 'subject', locals: { subject: subject, show_image: true } %>
+      <%= render partial: 'subject', locals: { subject: subject, show_image: false } %>
     <% end %>
   </div>
   <%== pagy_bulma_nav(@pagy) if @pagy.pages > 1 %>
 <% else %>
   <div class="notification">
-    There are no subjects yet.
-    <%= link_to 'Create one', new_subject_path if admin? %>
+    There are no subjects yet which match <strong><%= params[:keyword] %></strong>.
   </div>
 <% end %>

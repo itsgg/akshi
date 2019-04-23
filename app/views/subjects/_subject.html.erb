@@ -5,15 +5,17 @@
         <%= link_to subject.title, subject_path(subject) %>
       </p>
     </header>
-    <div class="card-image">
-      <figure class="image is-4by3">
-        <% if subject.image.attached? %>
-          <%= image_tag subject.image, alt: subject.title %>
-        <% else %>
-          <%= image_tag 'placeholder.png', alt: subject.title %>
-        <% end %>
-      </figure>
-    </div>
+    <% if show_image %>
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <% if subject.image.attached? %>
+            <%= image_tag subject.image, alt: subject.title %>
+          <% else %>
+            <%= image_tag 'placeholder.png', alt: subject.title %>
+          <% end %>
+        </figure>
+      </div>
+    <% end %>
     <div class="card-content">
       <div class="content">
         <%= sanitize subject.description %>
