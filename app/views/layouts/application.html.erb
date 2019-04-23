@@ -13,6 +13,7 @@
 <%= render '/layouts/header' %>
 <section class="section">
   <div class="container">
+    <%= render partial: 'partials/flash_messages', flash: flash %>
     <%= yield %>
   </div>
 </section>

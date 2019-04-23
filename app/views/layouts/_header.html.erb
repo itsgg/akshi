@@ -17,12 +17,18 @@
         <div class="navbar-item">
           <%= render '/layouts/search' %>
         </div>
-        <a class="navbar-item">
-          <strong>Sign up</strong>
-        </a>
-        <a class="navbar-item">
-          <strong>Login</strong>
-        </a>
+        <% if current_user.present? %>
+          <%= link_to logout_path, class: 'navbar-item', method: :delete do %>
+            <strong>Logout</strong>
+          <% end %>
+        <% else %>
+          <%= link_to signup_path, class: 'navbar-item' do %>
+            <strong>Sign up</strong>
+          <% end %>
+          <%= link_to login_path, class: 'navbar-item' do %>
+            <strong>Login</strong>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
