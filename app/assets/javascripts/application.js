@@ -17,23 +17,48 @@
 //= require trix
 //= require_tree .
 
-$(document).on("turbolinks:load", function () {
+$(document).on('turbolinks:load', function () {
     init();
 });
 
 function init() {
     initNavbar();
+    initFileSelection();
     initFileUpload();
 }
 
 function initNavbar() {
-    $(".navbar-burger").click(function () {
-        $(".navbar-burger").toggleClass("is-active");
-        $(".navbar-menu").toggleClass("is-active");
+    $('.navbar-burger').click(function () {
+        $('.navbar-burger').toggleClass('is-active');
+        $('.navbar-menu').toggleClass('is-active');
     });
 }
 
 function initFileUpload() {
+    addEventListener('trix-attachment-add', function (event) {
+        if (event.attachment.file) {
+            uploadFileAttachment(event.attachment);
+        }
+    });
+
+    function uploadFileAttachment(attachment) {
+        uploadFile(attachment.file, setProgress, setAttribute);
+
+        function setProgress(progress) {
+            attachment.setUploadProgress(progress);
+        }
+
+        function setAttribute(attributes) {
+            attachment.setAttributes(attributes);
+        }
+    }
+
+    function uploadFile(file, progressCallback, successCallback) {
+
+    }
+}
+
+function initFileSelection() {
     $('input[type=file]').bind('change', function () {
         let fileNameContainer = $(this).siblings('.file-name').first();
         if (fileNameContainer) {

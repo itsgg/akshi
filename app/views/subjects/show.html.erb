@@ -12,12 +12,12 @@
 
     <div class="content">
       <div class="notification">
-        <%= raw @subject.description %>
+        <%= sanitize @subject.description %>
       </div>
     </div>
 
     <div class="content">
-      <%= raw @subject.content %>
+      <%= sanitize @subject.content %>
     </div>
   </div>
 

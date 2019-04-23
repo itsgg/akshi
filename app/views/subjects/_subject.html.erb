@@ -3,10 +3,6 @@
     <header class="card-header">
       <p class="card-header-title">
         <%= link_to subject.title, subject_path(subject) %>
-      <div class="is-pulled-right">
-        <%= link_to 'Edit', edit_subject_path(subject), class: 'button is-primary is-small' %>
-        <%= link_to 'Delete', subject_path(subject), class: 'button is-danger is-small', method: :delete %>
-      </div>
       </p>
     </header>
     <div class="card-image">
@@ -20,18 +16,14 @@
     </div>
     <div class="card-content">
       <div class="content">
-        <%= raw subject.description %>
+        <%= sanitize subject.description %>
       </div>
     </div>
-    <footer class="card-footer">
-      <p class="card-footer-item has-text-grey-light">
-        <%= fa_icon 'users', class: 'm-r-xs' %>
-        3300
-      </p>
-      <p class="card-footer-item has-text-grey-light">
-        <%= fa_icon 'clock-o', class: 'm-r-xs' %>
-        3rd April
-      </p>
-    </footer>
+    <% if admin? %>
+      <footer class="card-footer">
+        <%= link_to 'Edit', edit_subject_path(subject), class: 'has-text-info card-footer-item' %>
+        <%= link_to 'Delete', subject_path(subject), class: 'has-text-danger card-footer-item', method: :delete %>
+      </footer>
+    <% end %>
   </div>
 </div>
