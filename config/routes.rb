@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :subjects
   resources :users
+  resources :attachments, only: [:create]
 
   get 'signup', to: 'users#new', as: 'signup'
   post 'signup', to: 'users#create'

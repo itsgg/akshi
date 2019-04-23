@@ -35,6 +35,10 @@ function initNavbar() {
 }
 
 function initFileUpload() {
+    Trix.config.attachments.preview.caption = {
+        name: false,
+        size: false
+    };
     addEventListener('trix-attachment-add', function (event) {
         if (event.attachment.file) {
             uploadFileAttachment(event.attachment);
@@ -42,19 +46,32 @@ function initFileUpload() {
     });
 
     function uploadFileAttachment(attachment) {
-        uploadFile(attachment.file, setProgress, setAttribute);
+        let csrfToken = $('meta[name="csrf-token"]').attr('content');
+        let file = attachment.file;
+        let form = new FormData;
+        let endpoint = "/attachments";
+        form.append("Content-Type", file.type);
+        form.append("attachment[file]", file);
 
-        function setProgress(progress) {
-            attachment.setUploadProgress(progress);
-        }
+        let xhr = new XMLHttpRequest;
+        xhr.open("POST", endpoint, true);
+        xhr.setRequestHeader("X-CSRF-Token", csrfToken);
 
-        function setAttribute(attributes) {
-            attachment.setAttributes(attributes);
-        }
-    }
+        xhr.upload.onprogress = function (event) {
+            let progress = event.loaded / event.total * 100;
+            return attachment.setUploadProgress(progress);
+        };
 
-    function uploadFile(file, progressCallback, successCallback) {
-
+        xhr.onload = function () {
+            if (this.status >= 200 && this.status < 300) {
+                let data = JSON.parse(this.responseText);
+                return attachment.setAttributes({
+                    url: data.url,
+                    href: data.url
+                });
+            }
+        };
+        return xhr.send(form);
     }
 }
 

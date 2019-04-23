@@ -1,5 +1,5 @@
 class SubjectsController < ApplicationController
-  before_action :subject, only: [:show, :edit, :update, :destroy]
+  before_action :subject, only: [:show, :edit, :update, :attach, :destroy]
 
   def index
     @pagy, @subjects = pagy(Subject.root)
@@ -58,6 +58,6 @@ class SubjectsController < ApplicationController
   end
 
   def subject_params
-    params.require(:subject).permit(:title, :description, :content, :parent_id, :image)
+    params.require(:subject).permit :title, :description, :content, :parent_id, :image
   end
 end
