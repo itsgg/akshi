@@ -1,0 +1,48 @@
+<%= form_for @subject, class: 'form', multipart: true do |form| %>
+  <div class="field">
+    <%= form.label :title, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :title, class: 'input', required: true %>
+    </div>
+  </div>
+  <div class="field">
+    <%= form.label :description, class: 'label' %>
+    <div class="control">
+      <%= form.trix_editor :description %>
+    </div>
+  </div>
+  <div class="field">
+    <%= form.label :content, class: 'label' %>
+    <div class="control">
+      <%= form.trix_editor :content %>
+    </div>
+  </div>
+  <% if @subject.image.attached? %>
+    <div class="field">
+      <%= image_tag @subject.image, size: '300' %>
+    </div>
+  <% end %>
+  <div class="field file has-name">
+    <%= form.label :image, class: 'file-label' do %>
+
+      <%= form.file_field :image, class: 'file-input' %>
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fa fa-upload"></i>
+        </span>
+        <span class="file-label">
+          Choose a image…
+        </span>
+      </span>
+      <span class="file-name">
+        <%= @subject.image.attached? ? @subject.image.filename : 'None' %>
+      </span>
+    <% end %>
+  </div>
+  <%= form.hidden_field :parent_id, value: params[:parent_id] %>
+  <div class="field">
+    <div class="control">
+      <%= form.submit "#{@subject.persisted? ? 'Update' : 'Create'}", class: 'button is-link' %>
+    </div>
+  </div>
+<% end %>

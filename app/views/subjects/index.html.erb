@@ -1,7 +1,13 @@
-<div class="columns is-multiline">
-  <% @subjects.each do |subject| %>
-    <%= render subject %>
-  <% end %>
-</div>
-
-<%== pagy_bulma_nav(@pagy) if @pagy.pages > 1 %>
+<% if @subjects.present? %>
+  <div class="columns is-multiline">
+    <% @subjects.each do |subject| %>
+      <%= render subject %>
+    <% end %>
+  </div>
+  <%== pagy_bulma_nav(@pagy) if @pagy.pages > 1 %>
+<% else %>
+  <div class="notification">
+    There are no subjects yet.
+    <%= link_to 'Create one', new_subject_path if admin? %>
+  </div>
+<% end %>

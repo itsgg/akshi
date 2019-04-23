@@ -14,11 +14,30 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+//= require trix
 //= require_tree .
 
 $(document).on("turbolinks:load", function () {
-  $(".navbar-burger").click(function() {
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
-  });
+    init();
 });
+
+function init() {
+    initNavbar();
+    initFileUpload();
+}
+
+function initNavbar() {
+    $(".navbar-burger").click(function () {
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+    });
+}
+
+function initFileUpload() {
+    $('input[type=file]').bind('change', function () {
+        let fileNameContainer = $(this).siblings('.file-name').first();
+        if (fileNameContainer) {
+            fileNameContainer.text($(this).val().replace(/^.*\\/i, ''));
+        }
+    });
+}

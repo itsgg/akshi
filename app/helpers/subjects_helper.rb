@@ -5,7 +5,7 @@ module SubjectsHelper
     parents(subject).reverse.each do |parent|
       links.push href: subject_path(parent), text: parent.title
     end
-    links.push href: subject_path(subject), text: subject.title, klass: 'is-active'
+    links.push href: subject_path(subject), text: subject.title, klass: 'is-active' if subject.persisted?
     content_tag :nav, class: 'breadcrumb' do
       content_tag :ul do
         links.map do |link|

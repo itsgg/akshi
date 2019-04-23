@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id              :bigint(8)        not null, primary key
+#  admin           :boolean          default(FALSE), not null
 #  email           :string
 #  password_digest :string
 #  created_at      :datetime         not null
@@ -16,6 +17,7 @@
 gg:
   email: me@itsgg.com
   password_digest: <%= BCrypt::Password.create('secret') %>
+  admin: true
 
 viji:
   email: viji.radhi@gmail.com
