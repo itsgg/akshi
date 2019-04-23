@@ -1,7 +1,7 @@
 <h1 class="title">Sign up</h1>
 <div class="columns">
   <div class="column is-one-third">
-    <%= form_for @user, class: 'form' do |form| %>
+    <%= form_for @user, url: signup_path, class: 'form' do |form| %>
       <div class="field">
         <%= form.label :email, class: 'label' %>
         <div class="control has-icons-left">
