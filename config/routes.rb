@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'static/about', as: 'about'
   root to: 'subjects#index'
 
   resources :subjects do
