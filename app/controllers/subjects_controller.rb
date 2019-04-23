@@ -49,7 +49,7 @@ class SubjectsController < ApplicationController
 
   def destroy
     parent = subject.parent
-    if subject.delete
+    if subject.destroy
       flash[:info] = 'Delete successful'
       if parent.present?
         redirect_to subject_path(parent)

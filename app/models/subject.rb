@@ -17,9 +17,9 @@ class Subject < ApplicationRecord
   validates :content, presence: true
 
   belongs_to :parent, class_name: 'Subject', required: false
-  has_many :children, class_name: 'Subject', foreign_key: 'parent_id'
+  has_many :children, class_name: 'Subject', foreign_key: :parent_id, dependent: :destroy
 
-  has_one_attached :image, dependent: :destroy
+  has_one_attached :image
 
   scope :root, -> { where(parent_id: nil) }
 end
