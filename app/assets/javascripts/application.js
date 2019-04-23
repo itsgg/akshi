@@ -26,10 +26,14 @@ function init() {
     initFileSelection();
     initFileUpload();
     initHighlight();
+    initMathjax();
+}
+
+function initMathjax() {
+    MathJax.Hub.Typeset();
 }
 
 function initHighlight() {
-
     $('.highlight pre').each(function () {
         let content = $(this).text();
         let match = content.match(/(?:^|\s)(```[a-z0-9]\w*)/i);
@@ -39,7 +43,8 @@ function initHighlight() {
             content = content.replace(rawHighlightLang, '').replace(/^\s*[\r\n]/gm, '');
             $(this).addClass('code');
             $(this).html($('<code class="' + highlightLang + '"></code>').text(content));
-            hljs.initHighlightingOnLoad($(this));
+            console.log('Highlighting');
+            hljs.highlightBlock($(this)[0]);
         }
     });
 }
