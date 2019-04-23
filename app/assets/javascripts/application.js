@@ -25,6 +25,23 @@ function init() {
     initNavbar();
     initFileSelection();
     initFileUpload();
+    initHighlight();
+}
+
+function initHighlight() {
+
+    $('.highlight pre').each(function () {
+        let content = $(this).text();
+        let match = content.match(/(?:^|\s)(```[a-z0-9]\w*)/i);
+        if (match) {
+            let rawHighlightLang = match[1];
+            let highlightLang = rawHighlightLang.replace('```', '');
+            content = content.replace(rawHighlightLang, '').replace(/^\s*[\r\n]/gm, '');
+            $(this).addClass('code');
+            $(this).html($('<code class="' + highlightLang + '"></code>').text(content));
+            hljs.initHighlightingOnLoad($(this));
+        }
+    });
 }
 
 function initNavbar() {
