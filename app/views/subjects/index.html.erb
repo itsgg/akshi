@@ -1,7 +1,7 @@
 <% if @subjects.present? %>
-  <div class="columns is-multiline subjects sortable">
-    <% @subjects.each do |subject| %>
-      <%= render partial: 'subject', locals: { subject: subject, show_image: true } %>
+  <div class="columns is-multiline subjects">
+    <% @subjects.each_with_index do |subject, index| %>
+      <%= render partial: 'subject', locals: { subject: subject, index: index, show_image: true } %>
     <% end %>
   </div>
   <%== pagy_bulma_nav(@pagy) if @pagy.pages > 1 %>

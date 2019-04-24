@@ -5,6 +5,7 @@
 #  id          :bigint(8)        not null, primary key
 #  content     :text             not null
 #  description :string           not null
+#  order       :integer          default(0), not null
 #  title       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -21,6 +22,8 @@ class Subject < ApplicationRecord
   has_many :children, class_name: 'Subject', foreign_key: :parent_id, dependent: :destroy
 
   has_one_attached :image
+
+  default_scope { order(order: :asc) }
 
   scope :root, -> { where(parent_id: nil) }
 end

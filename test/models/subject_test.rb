@@ -5,6 +5,7 @@
 #  id          :bigint(8)        not null, primary key
 #  content     :text             not null
 #  description :string           not null
+#  order       :integer          default(0), not null
 #  title       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

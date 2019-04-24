@@ -11,6 +11,14 @@ class SubjectsController < ApplicationController
     @pagy, @subjects = pagy(subjects)
   end
 
+  def order
+    Subject.transaction do
+      params[:ids].each_with_index do |id, index|
+        Subject.find(id).update_attribute(:order, params[:orders][index])
+      end
+    end
+  end
+
   def new
     @subject = Subject.new(parent_id: params[:parent_id])
   end
