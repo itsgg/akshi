@@ -155,6 +155,7 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
     pagy (2.1.5)
+    paloma (5.1.0)
     pg (1.1.4)
     public_suffix (3.0.3)
     puma (3.12.1)
@@ -263,6 +264,7 @@ DEPENDENCIES
   omniauth
   omniauth-google-oauth2
   pagy
+  paloma
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.3)

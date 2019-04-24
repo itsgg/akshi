@@ -1,15 +1,15 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
   helper_method :current_user, :logged_in?, :admin?
+  before_action :load_admin_js
 
   protected
 
   def current_user
-    if session[:user_id]
-      @current_user ||= User.find(session[:user_id])
-    else
-      @current_user = nil
-    end
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  rescue ActiveRecord::RecordNotFound
+    # User no longer available in the system
+    session[:user_id] = nil
   end
 
   def logged_in?
@@ -18,5 +18,9 @@ class ApplicationController < ActionController::Base
 
   def admin?
     logged_in? && current_user.admin?
+  end
+
+  def load_admin_js
+    js 'Admin' if admin?
   end
 end

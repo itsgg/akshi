@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require jquery
 //= require trix
+//= require paloma
 //= require_tree .
 
 $(document).on('turbolinks:load', function () {
@@ -27,6 +28,11 @@ function init() {
     initFileUpload();
     initHighlight();
     initMathjax();
+    initPaloma();
+}
+
+function initPaloma() {
+    Paloma.start();
 }
 
 function initMathjax() {
@@ -43,7 +49,6 @@ function initHighlight() {
             content = content.replace(rawHighlightLang, '').replace(/^\s*[\r\n]/gm, '');
             $(this).addClass('code');
             $(this).html($('<code class="' + highlightLang + '"></code>').text(content));
-            console.log('Highlighting');
             hljs.highlightBlock($(this)[0]);
         }
     });

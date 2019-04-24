@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
   before_action :subject, only: [:show, :edit, :update, :attach, :destroy]
 
   def index
-    @pagy, @subjects = pagy(Subject.root)
+    @pagy, @subjects = pagy(Subject.root, items: params[:items])
   end
 
   def search

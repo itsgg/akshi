@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/tomorrow-night.min.css">
   <meta name="turbolinks-cache-control" content="no-preview">
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <script src='//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'></script>
-  <script src="//cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.8/lib/draggable.bundle.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="//cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       showMathMenu: false,
@@ -36,5 +36,6 @@
   </div>
 </section>
 <%= render '/layouts/footer' %>
+<%= insert_paloma_hook %>
 </body>
 </html>

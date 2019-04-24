@@ -1,5 +1,5 @@
 <% if @subjects.present? %>
-  <div class="columns is-multiline">
+  <div class="columns is-multiline subjects sortable">
     <% @subjects.each do |subject| %>
       <%= render partial: 'subject', locals: { subject: subject, show_image: true } %>
     <% end %>
