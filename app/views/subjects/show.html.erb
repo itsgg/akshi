@@ -28,14 +28,16 @@
         <p class="panel-heading">
           More
         </p>
-        <% @subject.children.each do |subject| %>
-          <%= link_to subject_path(subject), class: 'panel-block' do %>
-          <span class="panel-icon">
-            <%= fa_icon 'book' %>
-          </span>
-            <%= subject.title %>
+        <div class="panel-content subjects">
+          <% @subject.children.each do |subject| %>
+            <%= link_to subject_path(subject), class: 'panel-block subject', id: subject.id do %>
+              <span class="panel-icon">
+                  <%= fa_icon 'book' %>
+              </span>
+              <%= subject.title %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </nav>
     </div>
   <% end %>
