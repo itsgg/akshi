@@ -23,4 +23,18 @@ class ApplicationController < ActionController::Base
   def load_admin_js
     js 'Admin' if admin?
   end
+
+  def require_login
+    return if logged_in?
+
+    flash[:alert] = 'Login required'
+    redirect_back fallback_location: root_path
+  end
+
+  def require_admin
+    return if admin?
+
+    flash[:alert] = 'Access denied'
+    redirect_back fallback_location: root_path
+  end
 end

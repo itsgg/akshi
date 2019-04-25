@@ -1,5 +1,6 @@
 class SubjectsController < ApplicationController
-  before_action :subject, only: [:show, :edit, :update, :attach, :destroy]
+  before_action :subject, only: %i[show edit update attach destroy]
+  before_action :require_admin, except: %i[index search show]
 
   def index
     @pagy, @subjects = pagy(Subject.root, items: params[:items])
