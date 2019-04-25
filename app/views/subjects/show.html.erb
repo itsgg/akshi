@@ -3,11 +3,13 @@
   <div class="column  <%= @subject.children.present? ? 'is-9' : 'is-12' %>">
     <h1 class="title">
       <%= @subject.title %>
-      <div class="is-pulled-right">
-        <%= link_to 'New', new_subject_path(parent_id: @subject.id), class: 'button is-info is-small' %>
-        <%= link_to 'Edit', edit_subject_path(@subject), class: 'button is-primary is-small' %>
-        <%= link_to 'Delete', subject_path(@subject), class: 'button is-danger is-small', method: :delete %>
-      </div>
+      <% if admin? %>
+        <div class="is-pulled-right">
+          <%= link_to 'New', new_subject_path(parent_id: @subject.id), class: 'button is-info is-small' %>
+          <%= link_to 'Edit', edit_subject_path(@subject), class: 'button is-primary is-small' %>
+          <%= link_to 'Delete', subject_path(@subject), class: 'button is-danger is-small', method: :delete %>
+        </div>
+      <% end %>
     </h1>
 
     <div class="content">

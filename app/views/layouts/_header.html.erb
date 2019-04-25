@@ -15,8 +15,8 @@
     <div class="navbar-menu">
       <div class="navbar-end">
         <% if admin? %>
-          <%= link_to 'New', new_subject_path, class: 'navbar-item' %>
-          <%= link_to 'Admin', admin_root_path, class: 'navbar-item' %>
+          <%= link_to 'New', new_subject_path, class: "navbar-item #{'is-active' if active?(:subjects_new)}" %>
+          <%= link_to 'Admin', admin_root_path, class: "navbar-item #{'is-active' if active?(:admin)}" %>
         <% end %>
         <div class="navbar-item">
           <%= render '/layouts/search' %>
@@ -26,10 +26,10 @@
             Logout
           <% end %>
         <% else %>
-          <%= link_to signup_path, class: 'navbar-item' do %>
+          <%= link_to signup_path, class: "navbar-item #{'is-active' if active?(:signup)}" do %>
             Sign up
           <% end %>
-          <%= link_to login_path, class: 'navbar-item' do %>
+          <%= link_to login_path, class: "navbar-item #{'is-active' if active?(:login)}" do %>
             Login
           <% end %>
         <% end %>
