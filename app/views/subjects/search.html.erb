@@ -8,6 +8,6 @@
   <%== pagy_bulma_nav(@pagy) if @pagy.pages > 1 %>
 <% else %>
   <div class="notification">
-    There are no subjects yet which match <strong><%= params[:keyword] %></strong>.
+    There are no subjects which match <strong><%= params[:keyword] %></strong> yet.
   </div>
 <% end %>
