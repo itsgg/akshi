@@ -1,5 +1,5 @@
 <% if @subjects.present? %>
-  <div class="columns is-multiline subjects">
+  <div class="columns is-multiline" id="subjects">
     <% @subjects.each_with_index do |subject, index| %>
       <%= render partial: 'subject', locals: { subject: subject, index: index, show_image: true } %>
     <% end %>

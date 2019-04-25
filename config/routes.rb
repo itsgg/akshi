@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'static/about', as: 'about'
   root to: 'subjects#index'
 
   resources :subjects do
@@ -18,4 +17,11 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
 
   delete 'logout', to: 'sessions#destroy', as: 'logout'
+
+  get 'static/about', as: 'about'
+
+  namespace :admin do
+    root to: 'dashboard#index'
+    resources :users
+  end
 end

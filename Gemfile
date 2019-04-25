@@ -8,7 +8,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bulma-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'flashee'
-gem 'font-awesome-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'mini_magick'

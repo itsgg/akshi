@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     return if logged_in?
 
     flash[:alert] = 'Login required'
-    redirect_back fallback_location: root_path
+    redirect_to login_path
   end
 
   def require_admin
