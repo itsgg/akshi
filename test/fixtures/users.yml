@@ -5,6 +5,7 @@
 #  id              :bigint(8)        not null, primary key
 #  admin           :boolean          default(FALSE), not null
 #  email           :string
+#  name            :string           not null
 #  password_digest :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -14,11 +15,13 @@
 #  index_users_on_email  (email) UNIQUE
 #
 
-gg:
-  email: me@itsgg.com
-  password_digest: <%= BCrypt::Password.create('secret') %>
+admin:
+  name: Admin
+  email: admin@akshi.com
+  password_digest: <%= BCrypt::Password.create('password') %>
   admin: true
 
-viji:
-  email: viji.radhi@gmail.com
-  password_digest: <%= BCrypt::Password.create('secret') %>
+user:
+  name: User
+  email: user@akshi.com
+  password_digest: <%= BCrypt::Password.create('password') %>

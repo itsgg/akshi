@@ -3,6 +3,12 @@
   <div class="column is-one-third">
     <%= form_for @user, url: signup_path, class: 'form' do |form| %>
       <div class="field">
+        <%= form.label :name, class: 'label' %>
+        <div class="control">
+          <%= form.text_field :name, class: 'input', required: true %>
+        </div>
+      </div>
+      <div class="field">
         <%= form.label :email, class: 'label' %>
         <div class="control">
           <%= form.email_field :email, class: 'input', required: true %>
